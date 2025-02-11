@@ -291,7 +291,7 @@ func expandServerSideEncryptionRules(l []any) []types.ServerSideEncryptionRule {
 			rule.ApplyServerSideEncryptionByDefault = expandServerSideEncryptionByDefault(v)
 		}
 
-		if v, ok := tfMap["bucket_key_enabled"].(bool); ok {
+		if v, ok := tfMap["bucket_key_enabled"].(bool); ok && v {
 			rule.BucketKeyEnabled = aws.Bool(v)
 		}
 
